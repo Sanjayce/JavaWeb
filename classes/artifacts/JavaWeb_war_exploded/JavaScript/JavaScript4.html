@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript4.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<script type="text/javascript">
+		function times() {
+			setTimeout(function(){confirm("单次计时器");}, 1000);
+		};
+	</script>
+
+</head>
+
+<body>
+	JavaScript浏览器对象
+	<hr>
+	<h4>Timer计时器</h4>
+	<h6>一次计时器:setTimeout()/clearTimeout()</h6>
+	<br>
+    <input type="button" value="单次计时器" onclick="times()">
+	<h6>循环计时器:setInterval()/clearInterval()</h6>
+	<br>
+	<input id="timeint" type="text">
+	<script type="text/javascript">
+		var label = document.getElementById("timeint");
+		function time() {
+			var date = new Date();
+			label.value = date.getFullYear() + "/" + (date.getMonth() + 1) + "/"
+					+ date.getDate() + " " + date.getHours() + ":"
+					+ date.getMinutes() + ":" + date.getSeconds();
+
+		};
+		setInterval(time, 1000);
+	</script>
+	
+	<h4>Screen屏幕</h4>
+	<script type="text/javascript">
+	 document.writeln("屏幕宽："+window.screen.width+"px"+"<br>");
+	 document.writeln("屏幕高："+window.screen.height+"px"+"<br>");
+	 document.writeln("屏幕可用宽："+window.screen.availWidth+"px"+"<br>");
+	 document.writeln("屏幕可用高："+window.screen.availHeight+"px"+"<br>");
+	</script>
+	<h4>History历史</h4>
+	<script type="text/javascript">
+	 //window.history.length; 历史长度
+	 //window.history.back(); 上一个
+	 //window.history.forward(); 下一个
+	 //window.history.go(index); 指定位置
+	</script>
+	
+</body>
+</html>

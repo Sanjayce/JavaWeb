@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML+CSS+JavaScript</title>
+
+
+<!-- 表现形式 -->
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 14px
+}
+
+a {
+	color: #333;
+	text-decoration: none
+}
+
+ul {
+	list-style: none
+}
+
+div {
+	height: 65px
+}
+
+.nav {
+	height: 30px;
+	border-bottom: 5px solid #F60;
+	width: 600px;
+	margin: 0 auto;
+	padding-top: 15px
+}
+
+.nav li {
+	float: left;
+	position: relative;
+	height: 30px;
+	width: 120px
+}
+
+.nav li a {
+	display: block;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	width: 120px;
+	background: #efefef;
+	margin-left: 1px
+}
+
+.nav li a:hover {
+	background: #F60
+}
+
+.subNav {
+	position: absolute;
+	top: 30px;
+	left: 0;
+	width: 120px;
+	height: 0;
+	overflow: hidden
+}
+
+.subNav li a {
+	display: block;
+	background: #ddd
+}
+
+.subNav li a:hover {
+	background: #F60
+}
+</style>
+
+
+<!-- 行为动画 -->
+<script>
+	window.onload = function() {
+		var aLi = document.getElementsByTagName('li');
+		for ( var i = 0; i < aLi.length; i++) {
+			//鼠标经过一级菜单，二级菜单动画下拉显示出来 
+			aLi[i].onmouseover = function() {
+				//通过指定标签名获取标签对象
+				var osubNav = this.getElementsByTagName('ul')[0];
+				if (osubNav) {
+					var This = osubNav;
+					clearInterval(This.time);//关闭动画
+					//设置动画
+					This.time = setInterval(function() {
+						This.style.height = This.offsetHeight + 16 + "px";
+						if (This.offsetHeight >= 120) {
+							clearInterval(This.time);
+						}
+					}, 30);
+
+				}
+			};
+			//鼠标离开菜单，二级菜单动画收缩起来。		
+			aLi[i].onmouseout = function() {
+				var osubNav = this.getElementsByTagName('ul')[0];
+				if (osubNav) {
+					var This = osubNav;
+					clearInterval(This.time);
+					This.time = setInterval(function() {
+						This.style.height = This.offsetHeight - 16 + "px";
+						if (This.offsetHeight <= 0) {
+							clearInterval(This.time);
+						}
+					}, 30);
+				}
+			};
+
+		}
+	};
+</script>
+</head>
+
+
+
+<!-- 语义结构 -->
+<body style="background-color:#353535;">
+	<div>
+		<ul class="nav">
+			<li><a href="#">一级菜单</a>
+				<ul class="subNav">
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+				</ul></li>
+			<li><a href="#">一级菜单</a>
+				<ul class="subNav">
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+				</ul></li>
+			<li><a href="#">一级菜单</a>
+				<ul class="subNav">
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+				</ul></li>
+			<li><a href="#">一级菜单</a>
+				<ul class="subNav">
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+				</ul></li>
+			<li><a href="#">一级菜单</a>
+				<ul class="subNav">
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+					<li><a href="#">二级菜单</a>
+					</li>
+				</ul></li>
+		</ul>
+	</div>
+
+</body>
+</html>

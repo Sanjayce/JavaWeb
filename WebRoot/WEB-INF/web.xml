@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web:web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xmlns:web_1="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>JavaWeb</display-name>
+  <web:welcome-file-list>
+    <web:welcome-file>index.jsp</web:welcome-file>
+  </web:welcome-file-list>
+</web:web-app>

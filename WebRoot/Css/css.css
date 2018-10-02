@@ -1,0 +1,52 @@
+
+<!-- 符动布局模型类选择器 -->
+.div1 {
+	float: left;
+}
+
+.div2 {
+	float: right;
+}
+
+<!-- 标签选择器 -->
+h1 {
+	font-style: italic;
+	color: red;
+	text-align: center;
+}
+
+strong {
+	color: green;
+}
+
+img {
+	width: 200px;
+	height: 300px;
+	margin: 10px;
+	border: 1px black solid;
+}
+
+<!-- 类选择器 -->
+.string2 {
+	
+}
+
+<!-- ID选择器 -->
+#stringid {
+	color: orange;
+}
+
+<!-- 包含选择器 -->
+.baohan ul {
+	color: red;
+}
+
+<!-- 通用选择器 -->
+* {
+	color: background;
+}
+
+<!-- 分组选择符 -->
+.string1,.string2 {
+	color: black;
+}

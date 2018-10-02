@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript2.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function loading(){
+     prompt("text", "value");
+  }
+</script>
+
+</head>
+
+<body>
+	JavaScript事件响应
+	<hr>
+	<div>
+		<h4>onclick鼠标点击事件</h4>
+		<input id="click_one" type="button" value="单击事件" onclick="onClick()">
+		<br>
+		<h4>onmouseover/nmouseout鼠标经过/移开事件</h4>
+		<div id="over" style="width: 100px;height: 50px;background-color: blue;"></div>
+		<br>
+		<h4>onchange文本框内容改变事件</h4>
+		<input id="click_one" type="text" value="文本框内容改变" onchange="onChange()">
+		<br>
+		<h4>onselect文本框内容被选中事件</h4>
+		<input id="click_one" type="text" value="文本框内容被选中事件" onselect="onSelect()">
+		<br>
+		<h4>onfocus光标聚集事件</h4>
+		<input id="click_one" type="text" value="光标聚集" onfocus="onFocus()">
+		<br>
+		<h4>onblur光标离开事件</h4>
+		<input id="click_one" type="text" value="光标离开" onblur="onBlur()">
+		<br>
+		<h4>onload网页导入事件</h4>
+		<input id="click_one" type="button" value="网页导入" onload="loading()">
+		<br>
+		<h4>onunload关闭网页事件</h4>
+		<input id="click_one" type="button" value="关闭网页件" ondblclick="unLoading()">
+		<br>
+	</div>
+	<script type="text/javascript">
+	    function onClick(){
+	       alert("鼠标点击事件");
+	    }
+	    var overs = document.getElementById("over");
+	    overs.onmouseover=function(){
+	         overs.style.backgroundColor = "#adf";
+	    };
+	    overs.onmouseout=function(){
+	         overs.style.backgroundColor = "#aad";
+	    }; 
+	    
+	    function onChange(){
+	     confirm("文本内容被改变");
+	    }
+	    
+	    function onSelect(){
+	     confirm("文本内容被选择");
+	    }
+	    
+	    function onFocus(){
+	     confirm("文本框取得鼠标焦点");
+	    }
+	    
+	    function onBlur(){
+	     confirm("文本框失去鼠标焦点");
+	    }
+	    
+	    function unLoading(){
+          alert("是否确定关闭网页!");
+        }
+	      
+	</script>
+</body>
+</html>

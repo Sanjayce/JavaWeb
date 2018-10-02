@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery2.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+</head>
+
+<body>
+	<h1>jQuery事件响应</h1>
+	<hr>
+	<div>
+		<h4>click/dbclick鼠标单击/双击事件</h4>
+		<input id="click_one" type="button" value="单击事件">
+		<input id="click_two"type="button" value="双击事件">
+		<br>
+		<h4>mousedown/mouseup鼠标按下/松开事件</h4>
+		<input id="click_down" type="button" value="按下事件">
+		<input id="click_up"type="button" value="松开事件">
+		<br>
+		<!-- 注意:mouseover(子元素触发事件，父元素也要触发事件) 与 mouseenter(只有绑定的元素才会触发) 的冒泡原理-->
+		<h4>mouseover/mouseout鼠标经过/移开事件</h4>
+		<div id="super" style="width: 100px;height: 100px;background-color: red;">
+		    <div id="over" style="width: 70px;height: 100px;margin: 0 auto;background-color: blue;"></div>
+		</div>
+		<br>
+		<h4>mousemove鼠标移动事件</h4>
+		<div id="move" style="width: 100px;height: 50px;background-color: blue;"></div>
+		<br>
+		<h4>mouseenter/mouseleave鼠标移入元素内部或是元素外部</h4>
+		<div id="super" style="width: 100px;height: 100px;background-color: red;">
+		     <div id="enter" style="width: 70px;height: 100px;margin: 0 auto;background-color: blue;"></div>
+		</div>
+		<br>
+		<h4>hover(封装鼠标移入，移除事件)事件</h4>
+		<div id="hover" style="width: 100px;height: 50px;background-color: blue;"></div>
+		<br>
+		<!-- 注意: focusout/blur 的父级元素冒泡问题-->
+		<h4>focusin(focus)/focusout(blur)光标获焦/失焦事件</h4>
+		<input class="focu" type="text" value="默认文本内容">
+		<br>
+		<!-- 注意: select事件只能用于<input>元素与<textarea>元素-->
+		<h4>change/select/submit事件</h4>
+		<input class="chan" type="text" value="默认文本内容"><br>
+		<textarea rows="5" cols="20">默认文本内容</textarea><br>
+		<input class="sub" type="submit" value="默认文本内容">
+		<br>
+		<h4>keydown()/keyup()键盘事件</h4>
+		<p>而 KeyDown 和 KeyUP 事件过程可以处理任何不被 KeyPress 识别的击键。诸如：功能键（F1-F12）、编辑键、定位键以及任何这些键和键盘换档键的组合等</p>
+		<br>
+		<h4>keypress()键盘事件</h4>
+		<p>KeyPress主要用来接收字母、数字等ANSI字符</p>
+		<br>
+		<h4>on()/off()事件绑定/事件解绑</h4>
+		<p>基本用法：.on( events ,[ selector ] ,[ data ] )
+		   $("#elem").click(function(){})  //快捷方式
+		   $("#elem").on('click',function(){}) //on方式</p>
+		<p>多个事件绑定同一个函数 $("#elem").on("mouseover mouseout",function(){ });</p>
+		<p>多个事件绑定不同函数 $("#elem").on({mouseover:function(){},mouseout:function(){}});</p>
+		<br>
+		<h4>事件对象event.target</h4>
+		<p>
+		   事件对象的属性和方法:
+		   event.type：获取事件的类型,
+		   event.pageX 和 event.pageY：获取鼠标当前相对于页面的坐标,
+		   event.preventDefault() 方法：阻止默认行为,
+		   event.stopPropagation() 方法：阻止事件冒泡,
+		   event.which：获取在鼠标单击时，单击的是鼠标的哪个键,
+		   event.currentTarget : 在事件冒泡过程中的当前DOM元素,
+		   .this和event.target都是dom对象!
+		</p>
+		    <ul>
+                <li>点击：触发一</li>
+                <li>点击：触发二</li>
+                <li>点击：触发三</li>
+                <li>点击：触发四</li>
+            </ul>
+	</div>
+	<h1>jQuery元素动画</h1>
+	<hr>
+	<div>
+	  <h4 id="anim1">hide()隐藏/show()显示/toggle()相互切换</h4><br>
+	  <input id="anim1_btn" type="button" value="显示/隐藏">
+	  <h4 id="anim2">sildeDown()下拉/sildeUp()上卷/sildeToggle()相互切换</h4><br>
+	  <input id="anim2_btn" type="button" value="显示/隐藏">
+	  <h4 id="anim3">fadeOut()淡出效果/fadeIn()淡入效果/fadeToggle()相互切换/fadeTo()指定淡入效果</h4><br>
+	  <input id="anim3_btn" type="button" value="显示/隐藏">
+	  <h4 id="anim4">jQuery自定义动画animate()/stop()</h4><br>
+	  <input id="anim4_btn" type="button" value="显示/隐藏">
+	  <h4>toggle()/sildeToggle()/fadeToggle()区别</h4><br>
+	  toggle():动画执行时，改变匹配元素的宽高透明度;
+	  sildeToggle():动画执行时，改变匹配元素的高;
+	  fadeToggle():动画执行时，改变匹配元素的透明度.
+	</div>
+	<script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+	<script type="text/javascript">
+	    $("#click_one").click(function(){
+	        alert("鼠标单击");
+	    });
+	    $("#click_two").dbclick(function(){
+	       	 alert("鼠标双击");
+	    });
+	    $("#click_down").mousedown(function(){
+	        alert("鼠标按下");
+	    });
+	    $("#click_up").mouseup(function(){
+	        alert("鼠标松开");
+	    });
+	    //鼠标移入与移除(不考虑父级元素冒泡机制)
+	    $("#over").on({mouseover:function(){
+	       this.style.backgroundColor="#aaa";
+	    },mouseout:function(){ 
+	       this.style.backgroundColor="#bbb";
+	    }});
+	    //鼠标移动
+	    $("#move").mousemove(function(e){
+	        alert("触发的元素是内容是: " + e.target.textContent);
+	    });
+	    //多事件绑定一
+        $("ul").on('click',function(e){
+           alert("触发的元素是内容是: " + e.pageX);
+        });
+        //光标事件
+        $(".focu").focusin(function(){ //focus
+             confirm("获取光标焦点");
+        });
+        $(".focu").focusout(function(){ //blur
+             confirm("失去光标焦点");
+        });
+        //动画效果
+        $("#anim1_btn").on("click",function(){
+             $("#anim1").show(3000);
+             $("#anim1").hide(3000,function(){
+                 alert("元素隐藏!");
+             });
+             $("#anim1").toggle(3000);
+        });
+        $("#anim2_btn").on("click",function(){
+             $("#anim2").sildeUp(3000);
+             $("#anim2").sildeDown(3000,function(){
+                 alert("元素下拉!");
+             });
+             $("#anim2").sildeToggle(3000);
+        });
+        $("#anim3_btn").on("click",function(){
+             $("#anim3").fadeOut(3000);
+             $("#anim3").fadeIn(3000);
+             $("#anim3").fadeToggle(3000,function(){
+                 $("#anim3").fadeTo("slow",0.5,function(){
+                       alert("指定透明度!");
+                 });
+             });
+        });
+        $("#anim4_btn").on("click",function(){
+             $("#anim4").animate({},3000,function(){
+                 $("#anim3").stop();
+             });
+        });
+	</script>
+</body>
+</html>

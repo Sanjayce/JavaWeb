@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript课程</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    
+<style type="text/css">
+body{font-size:12px;}
+#txt{
+    width:700px;
+	border:#333 solid 1px;
+	padding:5px;}
+#txts{
+    width:700px;
+	border:#333 solid 1px;
+	padding:5px;}
+p{
+	line-height:18px;
+	text-indent:2em;}
+</style> 
+    <!-- 外部式JavaScript样式代码  <script src="***/***.js"></script> -->
+    <!-- 内部式JavaScript样式代码  -->
+    <script type="text/javascript">
+    function changeInnerHTML(){
+      var mychar=document.getElementById("h");
+      mychar.style.backgroundColor="#CCC";
+      document.write("原标题:"+mychar.innerHTML);
+      mychar.innerHTML = "JavaScript课程";
+      document.write("新标题:"+mychar.innerHTML);
+    }
+
+    function showAlert(){
+	  alert("警告!");
+    }
+    
+    function showConfirm(){
+	  confirm("欢迎回来!");
+    } 
+    function showPrompt(){
+      prompt("请输入网址:");
+    }
+    function openWindow(){
+      window.open("www.baidu.com","_block");
+    }
+    function closeWindow(){
+      window.close();
+    }
+    </script>
+  </head>
+  
+  <body>
+    <h2 id="h">JavaScript课程1</h2>
+    <hr>
+    <div id="txts">
+    <h5>JavaScript(常用互动方法)</h5>
+        <p>1.document.write(String str)</p>
+        <p>2.alert(String str)</p>
+        <p>3.confirm() return boolean</p>
+        <p>4.prompt() return editeContent</p>
+        <p>5.window.open(url,str,style)</p>
+        <p>6.window.close()</p>
+    </div>
+    <form>
+      <input type="button" name="button" value="InnerHTML" onclick="changeInnerHTML()">
+      <input type="button" name="button" value="警告对话框" onclick="showAlert()">
+      <input type="button" name="button" value="消息对话框" onclick="showConfirm()">
+      <input type="button" name="button" value="输入对话框" onclick="showPrompt()">
+      <input type="button" name="button" value="打开新窗口" onclick="openWindow()">
+      <input type="button" name="button" value="关闭窗口" onclick="closeWindow()">
+    </form>
+    <hr>
+   <h2 id="con">JavaScript课程2</H2>
+  <div id="txt"> 
+     <h5>JavaScript为网页添加动态效果并实现与用户交互的功能。</h5>
+        <p>1. JavaScript入门篇，让不懂JS的你，快速了解JS。</p>
+        <p>2. JavaScript进阶篇，让你掌握JS的基础语法、函数、数组、事件、内置对象、BOM浏览器、DOM操作。</p>
+        <p>3. 学完以上两门基础课后，在深入学习JavaScript的变量作用域、事件、对象、运动、cookie、正则表达式、ajax等课程。</p>
+  </div>
+  <form>
+    <!--当点击相应按钮，执行相应操作，为按钮添加相应事件-->
+    <input id="btn1" type="button" value="改变颜色">  
+    <input id="btn2" type="button" value="改变宽高">
+    <input type="button" value="隐藏内容" onclick = "onDisplay()">
+    <input type="button" value="显示内容" onclick = "Display()">
+    <input type="button" value="取消设置" onclick = "cancelSet()">
+  </form>
+  <hr>
+  <h2>JavaScript课程3</H2>
+  <div id="txt">
+    <p id="p_p"></p>
+  </div>
+    <!-- 嵌入式JavaScript样式代码  -->
+    //一维数组的表示: myarray[ ]，二维数组的表示: myarray[ ][ ]
+    <script type="text/javascript">
+    var myarr = new Array(); //定义数组
+    //通过索引赋值
+    myarr[0]=80; 
+    myarr[1]=60;
+    myarr[2]=99;
+    var myarr2=new Array(4); //指定数组长度
+    //直接赋值
+    var myarr3=new Array(80,60,99);
+    var myarr4=[80,60,99];
+    
+    var bodys = document.getElementsById("p_p");
+    for(var i=0;i< myarr.length;i++){
+     bodys.innerHtml="成绩是:"+myarr[i];
+    }
+   
+    //HTML事件监听事件
+    function cancelSet(){
+      var isCancelSet = confirm("是否取消设置!");
+      if(isCancelSet){
+        
+      }
+    }
+    
+    //DOM0级事件监听事件
+    var btn1 = document.getElementById("btn1");
+    btn1.onclick =function changeColor(){
+      var txt = document.getElementById("txt");
+      txt.style.backgroundColor = "#adf";
+    };
+    
+    //DOM2级事件监听事件
+    var btn2 = document.getElementById("btn2");
+    btn2.addEventListener("click",changeWidthOrHeight,false);//添加事件
+    btn2.removeEventListener('click',changeWidthOrHeight,false);//删除事件
+    
+    function changeWidthOrHeight(){
+      var con = document.getElementById("con");
+      con.style.backgroundColor = "#adf";
+      con.style.width = 100;
+      con.style.height = 50;
+    }
+    
+    function onDisplay(){
+      var con = document.getElementById("con");
+      con.style.diaplay = "none";//隐藏
+    }
+    function Display(){
+      var con = document.getElementById("con");
+      con.style.diaplay = "block"; //显示
+    }
+    
+    /**
+    * <!-- JavaScript:属性与方法的封装,解决跨浏览器问题 -->
+    */
+    
+    var functionUtil={
+        //添加事件监听器
+       addHandler:function(element,type,handler){
+        if(element.addEventListener){
+           element.addEventListener(type,handler,false);
+        }else if(elment.attachEvent){
+           elment.attachEvent("on"+type,handler);
+        }else{
+           elment["on"+type]=handler;
+        }
+       } 
+     };
+     functionUtil.addHandler(document.getElementById("btn2"),"click",changeWidthOrHeight);
+ </script>
+  </body>
+</html>

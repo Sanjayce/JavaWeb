@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript4.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<style type="text/css">
+.DIV{
+   background-color: gray;
+}
+</style>
+
+</head>
+
+<body>
+	JavaScript DOM文档对象模型
+	<hr>
+	<h4>DOM获取方式</h4>
+	<input type="text" value="getElementsByTagName">
+	<input type="text" name="inputss" value="getElementsByName">
+	<input type="text" id="inputs" value="getElementById">
+	<script type="text/javascript">
+		var input0 = document.getElementsByTagName("input");
+		var input1 = document.getElementById("inputs");
+		var input2 = document.getElementsByName("inputss");
+	</script>
+
+	<h4 id="h4" title="h4">DOM元素属性</h4>
+	<input type="text" value="setAttribute()">
+	<input type="text" value="getAttribute()">
+	<br>
+	<script type="text/javascript">
+		var h = document.getElementById("h4");
+		h.setAttribute("id", "h4_id");
+		h.setAttribute("title", "h4_title");
+		//document.writeln("ID: " + h.getAttribute("id") + "---" + "TE: "+ h.getAttribute("title"));
+	</script>
+
+	<h4>DOM跟节点/子节点</h4>
+	<div class="DIV">
+		<ul>
+		    <li>111</li>
+		    <li>222</li>
+		    <li>333</li>
+	    </ul>
+	</div>
+
+	<h5>节点属性</h5>
+	<input type="text" value=".nodeName()">
+	<input type="text" value=".nodeValue()">
+	<input type="text" value=".nodeType()">
+	<br>
+	<script type="text/javascript">
+		var uls = document.getElementsByTagName("ul");
+		document.writeln(uls.nodeName());
+		document.writeln(uls.nodeValue());
+		document.writeln(uls.nodeType());
+	</script>
+
+	<h5>子节点</h5>
+	<input type="text" value=".childNodes()">
+	<input type="text" value=".firstChild()">
+	<input type="text" value=".lastChild()">
+	<input type="text" value=".parentNode()">
+	<input type="text" value=".next/previousSibling()">
+	<br>
+	<script type="text/javascript">
+		//
+	</script>
+
+	<h5>节点增删改插</h5>
+	<input type="text" value=".createElement()">
+	<input type="text" value=".createTextNode()">
+	<input type="text" value=".appenChild()">
+	<input type="text" value=".insertBefore/After()">
+	<input type="text" value=".removeChild()">
+	<input type="text" value=".replaceChild()">
+	<br>
+	<script type="text/javascript">
+		//
+	</script>
+</body>
+</html>
